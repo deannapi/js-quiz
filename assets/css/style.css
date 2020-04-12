@@ -38,7 +38,7 @@ footer {
 }
 
 .container {
-    height: 350px;
+    height: 400px;
     width: 500px;
     position: absolute;
     top: 60%;
@@ -52,22 +52,23 @@ footer {
 
 .question {
     padding: 20px;
-    font-size: 18px;
+    font-size: 20px;
     background: var(--second);
     border-radius: 20px;
     margin: 10px 0 10px 0;
-    color: black;
+    color: white;
 }
 
 .option {
     width: 400px;
     display: inline-block;
-    padding: 10px 0 10px 15px;
+    padding: 10px 0 10px 10px;
     vertical-align: middle;
     background: var(--third);
+    font-size: 18px;
     margin: 10px 0 10px 10px;
     color: black;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 .option:hover {
@@ -84,6 +85,7 @@ footer {
     border-radius: 20px;
     cursor: pointer;
     float: right;
+    font-variant: small-caps;
     margin: 10px;
 }
 

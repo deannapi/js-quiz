@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Quiz</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <header class="page-title">JavaScript Quiz    </header>
+        <div class="grid-start">
+            <div>
+                <p>Click the button to begin the quiz. Good Luck!</p>
+                <button id="start" class="button">Start</button>    
+                <div class="timer">
+                    Timer: <span id="time"> 1:30 </span> minutes
+                </div>
+                <a href="#highscore">View Highscores</a>
+            </div>  
+        </div>  
+
+        <!--Quiz Section-->
+    <div id="quizContainer" class="container">
+        <div class="question" id="question"></div>
+        <label class="option"><input type="radio" name="option" value="1" /> <span id="opt1"></span></label>
+        <label class="option"><input type="radio" name="option" value="2" /> <span id="opt2"></span></label>
+        <label class="option"><input type="radio" name="option" value="3" /> <span id="opt3"></span></label>
+        <label class="option"><input type="radio" name="option" value="4" /> <span id="opt4"></span></label>
+        <button id="nextButton" class="next-btn" onclick="LoadNextQuestion();">Next Question</button>
+    </div>  
+    <div id="result" class="resultContainer" style="display: none;"></div>
+    <footer>&copy; 2020 by DeAnna Martinez</footer>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

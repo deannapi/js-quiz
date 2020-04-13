@@ -165,7 +165,7 @@ function LoadNextQuestion () {
     localStorage.setItem("highscore", initials + " " + score);
     resultCont.textContent="Score: " + initials + " " + score;
     redo.textContent="Replay";
-    clearInterval(timerRef);
+    clearTimeout(timerRef);    
     return;
   }
   loadQues(currentQuestion);
@@ -175,16 +175,8 @@ function replay () {
   location.reload();
 };
 
-
-
 startButton.addEventListener('click', startTimer);
 startButton.addEventListener('click',loadQues(currentQuestion));
 redo.addEventListener('click', replay);
-
-
-// pagination - remove next button
-// view highscores link
-
-// get real questions!
 
 // fix media pages

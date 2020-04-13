@@ -30,7 +30,7 @@ footer {
     background: var(--third);
     color: var(--second);
     font-size: 16px;
-    position: -webkit-sticky;
+    position: absolute;
     padding: 10px;
     bottom: 0;
     border-top: 3px solid var(--second);
@@ -159,17 +159,17 @@ footer {
         justify-content: space-evenly;
     }
     footer {
-        position: -webkit-sticky;
+        position: absolute;
     }
 }
 
 /*MEDIA QUERY FOR TABLETS AND SMALLER */
 @media screen and (max-width: 768px) {
     body {
-        margin: 25px;
+        margin: 0;
     }
     footer {
-        position: -webkit-sticky;
+        position: absolute;
     }
     .page-title {
         color: var(--second);
@@ -181,15 +181,16 @@ footer {
 /*MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
 @media screen and (max-width: 575px) {
     body {
-        margin: 25px;
+        margin: 0;
     }
 
    body p {
        font-size: 20px;
+       margin: 5px;
    }
 
    footer {
-       position: -webkit-sticky;
+       position: absolute;
    }
     .page-title {
         color: var(--second);
@@ -202,10 +203,10 @@ footer {
         display: grid;
         grid-template-columns: 275px;
         grid-template-rows: 40px repeat(7, 1fr);
-        height: 350px;
-        width: 300px;
+        height: 341px;
+        width: 333px;
         position: absolute;
-        top: 68%;
+        top: 65%;
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
         background: grey;

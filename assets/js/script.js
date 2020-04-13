@@ -32,7 +32,7 @@ var questions = [
       "option2": "4b here",
       "option3": "4c here",
       "option4": "4d here",
-      "answer": "1"
+      "answer": "3"
   },
   {
       "question": "question 5 here",
@@ -40,7 +40,7 @@ var questions = [
       "option2": "5b here",
       "option3": "5c here",
       "option4": "5d here",
-      "answer": "4"
+      "answer": "1"
   },
   {
       "question": "question 6 here",
@@ -63,12 +63,16 @@ var questions = [
 //timer countdown
 var timerRef = null;
 
+// startTimer that gets called upon start button being clicked
+// startTimer function only contains the setTimeout function
+// within the setTimeout function we create a new function that does the work that is currently inside our startTimer()
+
 function startTimer() {
   var p_time = document.getElementById('time').innerHTML;
   var timeArray = p_time.split(/[:]+/);
-  var min = timeArray[00];
+  var min = timeArray[0];
   var sec = checkSecond((timeArray[1] - 1));
-  if (sec == 59) {
+  if (sec === "59") {
     min = min - 1
   }
 
@@ -80,8 +84,10 @@ function startTimer() {
     return;
   }
 
-
-  timerRef = setTimeout(startTimer, 1000);
+  if(min === 1 && sec === 0) {
+    min = 0;
+  }
+  setTimeout(startTimer, 1000);
 }
 
 function checkSecond(seconds) {
@@ -94,8 +100,22 @@ function checkSecond(seconds) {
   return seconds;
 }
 
+function wrongTimer () {
+  var x_time = document.getElementById('time').innerHTML;
+  var wrongArray = x_time.split(/[:]+/);
+  var x_min = wrongArray[0];
+  var x_sec = checkSecond((wrongArray[1]-1));
+  if(x_sec === 59) {
+    x_min = x_min - 1
+  }
+  x_sec -= 10;
+  console.log(document.getElementById('time').innerHTML);
+  console.log("sec " + x_sec);
+  document.getElementById('time').innerHTML = x_min + ":" + x_sec;
+}
+
 var currentQuestion =0;
-var score =0;
+var score = 0;
 var container = document.getElementById("quizContainer");
 var quesEl = document.getElementById("question");
 var opt1 = document.getElementById("opt1");
@@ -105,6 +125,7 @@ var opt4 = document.getElementById("opt4");
 var totalQues = questions.length;
 var nextButton = document.getElementById("nextButton");
 var resultCont = document.getElementById("result");
+var redo = document.getElementById("replay");
 
 function loadQues (questionIndex) {
   var q = questions[questionIndex];
@@ -117,17 +138,23 @@ function loadQues (questionIndex) {
 
 function LoadNextQuestion () {
   var selectedOpt = document.querySelector("input[type=radio]:checked");
+  var right = document.getElementById('response');
   if(!selectedOpt) {
     alert("Select an answer.");
     return;
   }
-  var answer = selectedOpt.nodeValue;
-  if(questions[currentQuestion].answer == answer) {
+  var answer = selectedOpt.value;
+  if(questions[currentQuestion].answer === answer) {
+    // alert correct
     score += 10;
+    right.textContent="Correct!";
   } else {
     // subtract 10 seconds for wrong answer
-    startTimer.sec -= 10;
+    wrongTimer();
+    right.textContent="Incorrect! -10 seconds!";
+    // alert incorrect
   }
+  
   selectedOpt.checked = false;
   currentQuestion++;
   if(currentQuestion== totalQues-1) {
@@ -136,14 +163,32 @@ function LoadNextQuestion () {
   if(currentQuestion == totalQues) {
     container.style.display = "none";
     resultCont.style.display='';
+    startButton.style.display = 'none';
     var initials = window.prompt("Enter your initials.");
+    localStorage.setItem("highscore", initials + " " + score);
     resultCont.textContent="Score: " + initials + " " + score;
+    redo.textContent = "Replay";
     return;
   }
   loadQues(currentQuestion);
+  console.log(timerRef);
+};
+
+function replay () {
+  location.reload();
 };
 
 // play again button
 
 startButton.addEventListener('click', startTimer);
 startButton.addEventListener('click',loadQues(currentQuestion));
+
+// .checked not working
+  // not getting right/wrong answers
+  //alert user for right/wrong answer
+  // deduct time if wrong answer
+// pagination - remove next button
+// restart
+// view highscores link
+
+// get real questions!

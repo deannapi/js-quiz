@@ -158,7 +158,9 @@ footer {
         padding-block-start: 0;
         justify-content: space-evenly;
     }
-
+    footer {
+        position: -webkit-sticky;
+    }
 }
 
 /*MEDIA QUERY FOR TABLETS AND SMALLER */
@@ -166,7 +168,9 @@ footer {
     body {
         margin: 25px;
     }
-
+    footer {
+        position: -webkit-sticky;
+    }
     .page-title {
         color: var(--second);
         margin-top: 5px;

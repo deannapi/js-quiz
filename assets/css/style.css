@@ -163,6 +163,10 @@ footer {
 
 /*MEDIA QUERY FOR TABLETS AND SMALLER */
 @media screen and (max-width: 768px) {
+    body {
+        margin: 25px;
+    }
+
     .page-title {
         color: var(--second);
         margin-top: 5px;
@@ -173,7 +177,7 @@ footer {
 /*MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
 @media screen and (max-width: 575px) {
     body {
-        margin: 10px;
+        margin: 25px;
     }
 
    body p {

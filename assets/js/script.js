@@ -147,18 +147,17 @@ function LoadNextQuestion () {
   if(questions[currentQuestion].answer === answer) {
     // alert correct
     score += 10;
-    right.textContent="Correct!";
+    right.innerHTML="Correct!";
   } else {
     // subtract 10 seconds for wrong answer
     wrongTimer();
-    right.textContent="Incorrect! -10 seconds!";
-    // alert incorrect
+    right.innerHTML="Incorrect! -10 seconds!";
   }
   
   selectedOpt.checked = false;
   currentQuestion++;
   if(currentQuestion== totalQues-1) {
-    nextButton.textContent="finish";
+    nextButton.textContent="Submit";
   }
   if(currentQuestion == totalQues) {
     container.style.display = "none";
@@ -167,11 +166,10 @@ function LoadNextQuestion () {
     var initials = window.prompt("Enter your initials.");
     localStorage.setItem("highscore", initials + " " + score);
     resultCont.textContent="Score: " + initials + " " + score;
-    redo.textContent = "Replay";
+    redo.textContent="Replay";
     return;
   }
   loadQues(currentQuestion);
-  console.log(timerRef);
 };
 
 function replay () {
@@ -182,11 +180,9 @@ function replay () {
 
 startButton.addEventListener('click', startTimer);
 startButton.addEventListener('click',loadQues(currentQuestion));
+redo.addEventListener('click', replay);
 
-// .checked not working
-  // not getting right/wrong answers
-  //alert user for right/wrong answer
-  // deduct time if wrong answer
+
 // pagination - remove next button
 // restart
 // view highscores link

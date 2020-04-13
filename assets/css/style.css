@@ -58,9 +58,11 @@ footer {
     font-size: 20px;
     background: var(--second);
     border-radius: 20px;
-    margin: 10px 0 10px 0;
-    text-align: center;
+    margin: 5px 0 0 0;
     color: white;
+    align-items: center;
+    text-align: center;
+    justify-items: center;
 }
 
 .option {

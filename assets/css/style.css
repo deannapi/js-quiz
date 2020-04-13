@@ -40,11 +40,11 @@ footer {
 .container {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 45px repeat(4, 1fr);
+    grid-template-rows: 60px repeat(4, 50px);
     height: 400px;
     width: 500px;
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     background: grey;
@@ -54,21 +54,20 @@ footer {
 }
 
 .question {
-    padding: 20px;
+    padding: 3px;
     font-size: 20px;
     background: var(--second);
     border-radius: 20px;
-    margin: 5px 0 0 0;
+    margin: 0;
     color: white;
-    align-items: center;
     text-align: center;
-    justify-items: center;
+    vertical-align: text-top;
 }
 
 .option {
     width: 400px;
     display: inline-block;
-    padding: 10px 0 10px 10px;
+    padding: 5px 0 5px 5px;
     vertical-align: middle;
     background: var(--third);
     font-size: 18px;
@@ -150,6 +149,10 @@ footer {
     color: var(--primary);
 }
 
+.highscores {
+    color: var(--second);
+    font-size: 18px;
+}
 /*MEDIA QUERY FOR SMALL DESKTOP SCREENS AND SMALLER */
 @media screen and (max-width: 980px) {
     header {
@@ -165,9 +168,21 @@ footer {
 
 /*MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
 @media screen and (max-width: 575px) {
-    .grid-start {
-        grid-template-columns: auto;       
-        grid-template-rows: auto;
-    }
+   
+.container {
+    display: grid;
+    grid-template-columns: 50px repeat(1, 1fr);
+    grid-template-rows: 50px repeat(2, 1fr);
+    height: 400px;
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background: grey;
+    padding: 20px;
+    border: 2px solid #01068a;
+    box-shadow: 0 0 8px #b7f2f7;
+}
     
 }

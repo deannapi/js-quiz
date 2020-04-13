@@ -3,60 +3,60 @@ const startButton = document.getElementById('start');
 // questions
 var questions = [
   {
-      "question": "question 1 here",
-      "option1": "1a here",
-      "option2": "1b here",
-      "option3": "1c here",
-      "option4": "1d here",
-      "answer": "2"
-  },
-  {
-      "question": "question 2 here",
-      "option1": "2a here",
-      "option2": "2b here",
-      "option3": "2c here",
-      "option4": "2d here",
+      "question": "Which is a JavaScript Data Type?",
+      "option1": "number",
+      "option2": "string",
+      "option3": "boolean",
+      "option4": "all of the above",
       "answer": "4"
   },
   {
-      "question": "question 3 here",
-      "option1": "3a here",
-      "option2": "3b here",
-      "option3": "3c here",
-      "option4": "3d here",
+      "question": "What company developed JavaScript?",
+      "option1": "Java Inc.",
+      "option2": "Netscape",
+      "option3": "JQuery",
+      "option4": "CERN",
       "answer": "2"
   },
   {
-      "question": "question 4 here",
-      "option1": "4a here",
-      "option2": "4b here",
-      "option3": "4c here",
-      "option4": "4d here",
+      "question": "Which is correct to comment out lines in JS?",
+      "option1": "/*",
+      "option2": "#",
+      "option3": "//",
+      "option4": "<!---->",
       "answer": "3"
   },
   {
-      "question": "question 5 here",
-      "option1": "5a here",
-      "option2": "5b here",
-      "option3": "5c here",
-      "option4": "5d here",
+      "question": "Which of the following returns 'pink' for var colors = ['red', 'orange', 'pink']?",
+      "option1": "colors[2]",
+      "option2": "colors[0]",
+      "option3": "colors[1]",
+      "option4": "colors[3]",
       "answer": "1"
   },
   {
-      "question": "question 6 here",
-      "option1": "6a here",
-      "option2": "6b here",
-      "option3": "6c here",
-      "option4": "6d here",
+      "question": "What statement exits from a loop?",
+      "option1": "pass;",
+      "option2": "break;",
+      "option3": "return;",
+      "option4": "exit;",
+      "answer": "2"
+  },
+  {
+      "question": "Inside which HTML element does the JavaScript link belong?",
+      "option1": "<link>",
+      "option2": "<meta>",
+      "option3": "<script>",
+      "option4": "<footer>",
       "answer": "3"
   },
   {
-      "question": "question 7 here",
-      "option1": "7a here",
-      "option2": "7b here",
-      "option3": "7c here",
-      "option4": "7d here",
-      "answer": "1"
+      "question": "Which is the correct method to hyperlink?",
+      "option1": "<h2>Hyperlink</h2>",
+      "option2": "<div href=\"url\">Hyperlink</div>",
+      "option3": "<link>Hyperlink</link>",
+      "option4": "<a href=\"url\">Hyperlink</a>",
+      "answer": "4"
   },
 ]
 
@@ -109,8 +109,6 @@ function wrongTimer () {
     x_min = x_min - 1
   }
   x_sec -= 10;
-  console.log(document.getElementById('time').innerHTML);
-  console.log("sec " + x_sec);
   document.getElementById('time').innerHTML = x_min + ":" + x_sec;
 }
 
@@ -167,6 +165,7 @@ function LoadNextQuestion () {
     localStorage.setItem("highscore", initials + " " + score);
     resultCont.textContent="Score: " + initials + " " + score;
     redo.textContent="Replay";
+    clearInterval(timerRef);
     return;
   }
   loadQues(currentQuestion);
@@ -176,7 +175,7 @@ function replay () {
   location.reload();
 };
 
-// play again button
+
 
 startButton.addEventListener('click', startTimer);
 startButton.addEventListener('click',loadQues(currentQuestion));
@@ -184,7 +183,8 @@ redo.addEventListener('click', replay);
 
 
 // pagination - remove next button
-// restart
 // view highscores link
 
 // get real questions!
+
+// fix media pages

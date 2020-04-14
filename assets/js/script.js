@@ -25,7 +25,7 @@ var questions = [
       ["/*",
       "#",
       "//",
-      "\\'<!-- -->\\'"],
+      "&lt;!-- --&gt;"],
       "//"
   ),
   new Question(
@@ -46,19 +46,19 @@ var questions = [
   ),
   new Question(
       "6. Inside which HTML element does the JavaScript link belong?",
-      ["<link>",
-      "<meta>",
-      "<script>",
-      "<footer>"],
-      "<script>"
+      ["&lt;link&gt;",
+      "&lt;meta&gt;",
+      "&lt;script&gt;",
+      "&lt;footer&gt;"],
+      "&lt;script&gt;"
   ),
   new Question(
       "7. Which is the correct method to hyperlink?",
-      ["<h2>Hyperlink</h2>",
-      "<div href=\"url\">Hyperlink</div>",
-      "<link>Hyperlink</link>",
-      "<a href=\"url\">Hyperlink</a>"],
-      "<a href=\"url\">Hyperlink</a>"
+      ["&lt;h2&gt;Hyperlink&lt;/h2&gt;",
+      "&lt;div href=\"url\"&gt;Hyperlink&lt;/div&gt;",
+      "&lt;link&gt;Hyperlink&lt;/link&gt;",
+      "&lt;a href=\"url\"&gt;Hyperlink&lt;/a&gt;"],
+      "&lt;a href=\"url\"&gt;Hyperlink&lt;/a&gt;"
   ),
 ]
 
@@ -124,7 +124,7 @@ Quiz.prototype.guess = function (answer) {
     right.innerHTML = "Correct!";
     this.score += 10;
   } else if (!this.getQuestionIndex().isCorrectAnswer(answer)) {
-    right.innerHTML = "Incorrect!";
+    right.innerHTML = "Incorrect! -10 seconds!";
     wrongTimer();
   }
   this.questionIndex++;
@@ -182,19 +182,6 @@ function showScores() {
 
 //create quiz
 var quiz = new Quiz(questions);
-
-// function answerSel() {
-//   var userAnswer = quiz.guess(guess);
-//   console.log(userAnswer);
-//   if(userAnswer === Question.answer) {
-//     // alert correct
-//     right.innerHTML="Correct!";
-//   } else {
-//     // subtract 10 seconds for wrong answer
-//     wrongTimer();
-//     right.innerHTML="Incorrect! -10 seconds!";
-//   }
-// };
 
 function replay () {
   location.reload();

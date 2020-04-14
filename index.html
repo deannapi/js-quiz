@@ -20,15 +20,18 @@
         </div>  
 
         <!--Quiz Section-->
-    <div id="quizContainer" class="container">
-        <div class="question" id="question"></div>
-        <label class="option"><input type="radio" name="option" value="1" /> <span id="opt1"></span></label>
-        <label class="option"><input type="radio" name="option" value="2" /> <span id="opt2"></span></label>
-        <label class="option"><input type="radio" name="option" value="3" /> <span id="opt3"></span></label>
-        <label class="option"><input type="radio" name="option" value="4" /> <span id="opt4"></span></label>
-        <button id="nextButton" class="next-btn" onclick="LoadNextQuestion();">Next Question</button>
-        <div id="response" class="response" >Answer: </div>
-    </div>  
+    <div class="grid">
+        <div id="quiz">
+            <p id="question"></p>
+                <div class="buttons">
+                    <button id="btn0"><span id="choice0"></span></button>
+                    <button id="btn1"><span id="choice1"></span></button>
+                    <button id="btn2"><span id="choice2"></span></button>
+                    <button id="btn3"><span id="choice3"></span></button>
+                    <div id="response" class="response" >Answer: </div>
+                </div>
+        </div>
+    </div>    
     <div id="result" class="resultContainer"  style="display: none;"></div>    
     <button id="replay" class="button" >Restart</button>
     <footer>&copy; 2020 by DeAnna Martinez</footer>

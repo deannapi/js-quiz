@@ -10,7 +10,7 @@ var questions = [
       "string",
       "boolean",
       "all of the above"],
-      "4"
+      "all of the above"
   ),
   new Question(
       "2. What company developed JavaScript?",
@@ -18,15 +18,15 @@ var questions = [
       "Netscape",
       "JQuery",
       "CERN"],
-      "2"
+      "Netscape"
   ),
   new Question(
       "3. Which is correct to comment out lines in JS?",
       ["/*",
       "#",
       "//",
-      "<!-- -->"],
-      "3"
+      "\\'<!-- -->\\'"],
+      "//"
   ),
   new Question(
       "4. Which of the following returns 'pink' for var colors = ['red', 'orange', 'pink']?",
@@ -34,7 +34,7 @@ var questions = [
       "colors[0]",
       "colors[1]",
       "colors[3]"],
-      "1"
+      "colors[2]"
   ),
   new Question(
       "5. What statement exits from a loop?",
@@ -42,7 +42,7 @@ var questions = [
       "break;",
       "return;",
       "exit;"],
-      "2"
+      "break;"
   ),
   new Question(
       "6. Inside which HTML element does the JavaScript link belong?",
@@ -50,7 +50,7 @@ var questions = [
       "<meta>",
       "<script>",
       "<footer>"],
-      "3"
+      "<script>"
   ),
   new Question(
       "7. Which is the correct method to hyperlink?",
@@ -58,7 +58,7 @@ var questions = [
       "<div href=\"url\">Hyperlink</div>",
       "<link>Hyperlink</link>",
       "<a href=\"url\">Hyperlink</a>"],
-      "4"
+      "<a href=\"url\">Hyperlink</a>"
   ),
 ]
 
@@ -121,8 +121,12 @@ Quiz.prototype.getQuestionIndex = function () {
 
 Quiz.prototype.guess = function (answer) {
   if(this.getQuestionIndex().isCorrectAnswer(answer)) {   
+    right.innerHTML = "Correct!";
     this.score += 10;
-  } 
+  } else if (!this.getQuestionIndex().isCorrectAnswer(answer)) {
+    right.innerHTML = "Incorrect!";
+    wrongTimer();
+  }
   this.questionIndex++;
 }
 
@@ -170,6 +174,8 @@ function showScores() {
   var gameOverHTML = "<h1>Result</h1>";
   gameOverHTML += "<h2 id='score'> Your scores: " + initials + " " + quiz.score + "</h2>";
   localStorage.setItem("highscores", initials + " " + quiz.score);
+  redo.textContent = "Replay";
+  startButton.style.display = "none";
   var element = document.getElementById("quiz");
   element.innerHTML = gameOverHTML;
 };
@@ -177,18 +183,18 @@ function showScores() {
 //create quiz
 var quiz = new Quiz(questions);
 
-function answerSel () {
-  var userAnswer =  ;
-  if(questions[currentQuestion].answer === userAnswer) {
-    // alert correct
-    score += 10;
-    right.innerHTML="Correct!";
-  } else {
-    // subtract 10 seconds for wrong answer
-    wrongTimer();
-    right.innerHTML="Incorrect! -10 seconds!";
-  }
-};
+// function answerSel() {
+//   var userAnswer = quiz.guess(guess);
+//   console.log(userAnswer);
+//   if(userAnswer === Question.answer) {
+//     // alert correct
+//     right.innerHTML="Correct!";
+//   } else {
+//     // subtract 10 seconds for wrong answer
+//     wrongTimer();
+//     right.innerHTML="Incorrect! -10 seconds!";
+//   }
+// };
 
 function replay () {
   location.reload();

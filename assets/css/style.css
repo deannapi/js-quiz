@@ -32,7 +32,7 @@ footer {
     background: var(--third);
     color: var(--second);
     font-size: 16px;
-    position: absolute;
+    position: -webkit-sticky;
     padding: 10px;
     bottom: 0;
     border-top: 3px solid var(--second);
